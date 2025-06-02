@@ -1,5 +1,5 @@
 
-Blockchain Broadcasting Simulator
+## Blockchain Broadcasting Simulator
 
 This project is a blockchain broadcasting simulator initially based on the open-source repository: [blockchain-simulator](https://github.com/blockchain-simulator/blockchain__simulator). It simulates the behavior of block propagation mechanisms in decentralized networks.
 
