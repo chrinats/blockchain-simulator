@@ -1,7 +1,8 @@
 #Ignore everything
 *
 
-# But not these folders
+# But not these:
+!.gitignore
 !build/
 !build/classes/
 !build/classes/java/
@@ -9,5 +10,16 @@
 !build/classes/java/main/org/
 !build/classes/java/main/org/example/
 
-# Do not ignore this .gitignore file
-!.gitignore
+# Don't ignore the README
+!README.md
+
+# Only keep class files inside example/
+!build/classes/java/main/org/example/*.class
+
+# Ignore other .class files (if any) elsewhere
+*.class
+
+# Explicitly ignore everything else under org/
+build/classes/java/main/org/*
+!build/classes/java/main/org/example/
+!build/classes/java/main/org/example/*.class
