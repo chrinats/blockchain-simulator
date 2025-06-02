@@ -1,7 +1,7 @@
 
 Blockchain Broadcasting Simulator
 
-This project is a blockchain broadcasting simulator initially based on the open-source repository developed by Mobsya: [Mobsya/blockchain-simulator](https://github.com/Mobsya/blockchain-simulator). It simulates the behavior of block propagation mechanisms in decentralized networks.
+This project is a blockchain broadcasting simulator initially based on the open-source repository: [blockchain-simulator](https://github.com/blockchain-simulator/blockchain__simulator). It simulates the behavior of block propagation mechanisms in decentralized networks.
 
 ## 🧩 Features
 
@@ -20,6 +20,6 @@ Clone the repository and run the simulation using IntelliJ IDEA or any Java IDE 
 ## 📚 Reference
 
 This project extends:
-- [https://github.com/Mobsya/blockchain-simulator](https://github.com/Mobsya/blockchain-simulator)
+- [https://github.com/blockchain-simulator/blockchain__simulator](https://github.com/blockchain-simulator/blockchain__simulator)
 
 Please refer to the original repository for the baseline architecture.
