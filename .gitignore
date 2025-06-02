@@ -1,0 +1,13 @@
+#Ignore everything
+*
+
+# But not these folders
+!build/
+!build/classes/
+!build/classes/java/
+!build/classes/java/main/
+!build/classes/java/main/org/
+!build/classes/java/main/org/example/
+
+# Do not ignore this .gitignore file
+!.gitignore
