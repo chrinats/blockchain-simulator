@@ -3,23 +3,18 @@
 
 # But not these:
 !.gitignore
-!build/
-!build/classes/
-!build/classes/java/
-!build/classes/java/main/
-!build/classes/java/main/org/
-!build/classes/java/main/org/example/
+!src/
+!src/main/
+!src/main/java/
+!src/main/java/org/
+!src/main/java/org/example
 
 # Don't ignore the README
 !README.md
 
 # Only keep class files inside example/
-!build/classes/java/main/org/example/*.class
+!src/main/java/org/example/*.class
 
 # Ignore other .class files (if any) elsewhere
 *.class
 
-# Explicitly ignore everything else under org/
-build/classes/java/main/org/*
-!build/classes/java/main/org/example/
-!build/classes/java/main/org/example/*.class
