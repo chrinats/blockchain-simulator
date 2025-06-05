@@ -1,20 +1,24 @@
-#Ignore everything
+#Ignore everything by default
 *
 
-# But not these:
+# But not these paths
 !.gitignore
+!README.md
 !src/
 !src/main/
 !src/main/java/
 !src/main/java/org/
-!src/main/java/org/example
+!src/main/java/org/example/
 
-# Don't ignore the README
-!README.md
-
-# Only keep class files inside example/
+# Only include .class files in the target directory
 !src/main/java/org/example/*.class
 
-# Ignore other .class files (if any) elsewhere
+# Ignore all other .class files outside that directory
 *.class
 
+# Optional: ignore typical build output and IDE files
+build/
+.gradle/
+*.iml
+.idea/
+out/
