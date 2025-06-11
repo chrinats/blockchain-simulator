@@ -205,6 +205,54 @@ public class Node {
 
         Sharables.TotalPropagationTime = totalPropagationTime;
     }
+    // Represents a transmission event of a block in the network
+    class BlockTransmission {
+        Node sender; // The node sending the block
+        int bucketLevel; // The XOR-distance-based level of the routing bucket
+        long transmissionTime; // The time at which this transmission occurs
+
+        BlockTransmission(Node sender, int bucketLevel, long transmissionTime) {
+            this.sender = sender;
+            this.bucketLevel = bucketLevel;
+            this.transmissionTime = transmissionTime;
+        }
+    }
+    // Implements the Kadcast broadcast algorithm without chunking.
+    // The block is transmitted as a single unit, following Kademlia's bucket-based routing.
+    void KadcastBroadcastWithoutChunks(Node sender) {
+        long totalPropagationTime = 0;  // Tracks the maximum time taken for full propagation
+        Set<String> sentBlocks = new HashSet<>();   // Keeps track of nodes that have already received the block
+        Queue<BlockTransmission> queue = new LinkedList<>(); // Queue for BFS traversal of the network
+
+        queue.add(new BlockTransmission(sender, 0, 0));
+
+        // BFS-like traversal to simulate propagation to neighbors per XOR-distance level
+        while (!queue.isEmpty()) {
+            BlockTransmission tx = queue.poll();
+            Node currentSender = tx.sender;
+            int bucketLevel = tx.bucketLevel;
+            long txTime = tx.transmissionTime;
+
+            List<Node> bucket = getNeighborsInBucket(bucketLevel);
+            if (bucket.isEmpty()) continue;
+
+            long maxDelay = 0;
+            for (Node neighbor : bucket) {
+                String key = String.valueOf(neighbor.getId());
+                if (sentBlocks.contains(key)) continue;
+
+                long delay = Functions.calculateBlockDelay(currentSender, neighbor);
+                maxDelay = Math.max(maxDelay, delay);
+
+                queue.add(new BlockTransmission(neighbor, bucketLevel + 1, txTime + delay));
+                sentBlocks.add(key);
+            }
+
+            totalPropagationTime = txTime + maxDelay;
+        }
+
+        Sharables.TotalPropagationTime = totalPropagationTime;
+    }
 
     public List<Node> getNeighborsInBucket(int level) {
         if (level >= 0 && level < buckets.size()) {

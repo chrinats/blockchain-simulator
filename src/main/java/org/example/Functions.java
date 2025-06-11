@@ -66,6 +66,22 @@ public class Functions {
         return transmissionDelay + processingDelay + networkDelay;
     }
 
+
+    public static long calculateBlockDelay(Node sender, Node receiver) {
+        int bandwidth = sender.getBandwidth();
+        int latency = sender.getLatency();
+
+        long blockSizeKB = Sharables.BlockSize;
+
+        long transmissionDelay = (blockSizeKB * 1000) / bandwidth;
+
+        long processingDelay = blockSizeKB/16;
+
+        long networkDelay = latency;
+
+        return transmissionDelay + processingDelay + networkDelay;
+    }
+
     public static byte[] concat(byte[] a, byte[] b) {
         int lenA = a.length;
         int lenB = b.length;

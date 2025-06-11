@@ -87,7 +87,7 @@ public class Scheduler {
             synchronized (kadcastQueue) {
                 event = kadcastQueue.poll();
             }
-
+// Change from KadCast to KadcastBroadcastWithoutChunks
             if (event != null) {
                 event.generatedBy.KadcastBroadcast(event.generatedBy);
                 maxTotalTime+=Sharables.TotalPropagationTime;
