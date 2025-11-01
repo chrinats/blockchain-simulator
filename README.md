@@ -3,7 +3,7 @@
 
 This project is a blockchain broadcasting simulator initially based on the open-source repository: [blockchain-simulator](https://github.com/blockchain-simulator/blockchain__simulator). It simulates the behavior of block propagation mechanisms in decentralized networks.
 
-## 🧩 Features
+### 🧩 Features
 
 - **Kadcast Protocol Integration**: A structured broadcasting protocol based on the XOR-metric and DHT principles.
 - **Hybrid Propagation Strategy**: Dynamically selects between monolithic and chunked broadcasting depending on block size (≤ 8KB for monolithic).
